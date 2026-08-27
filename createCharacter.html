@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Create Character</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -51,16 +51,62 @@
         border-radius: 15px;
         border: solid #ffffff24 2px;
     }
+
+    .hidden {
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .copy-container {
+        position: relative;
+        background: #00000055;
+        border: solid #87cfeb71 2px;
+        border-radius: 10px;
+        padding: 20px 10px 10px 10px;
+        /* Отступ сверху побольше, чтобы кнопка не перекрывала текст */
+        margin-bottom: 20px;
+
+        width: 400px;
+        height: 300px;
+
+    }
+
+    .copy-container pre {
+        white-space: pre-wrap;
+        /* Сохраняет переносы строк и позволяет тексту переноситься, если он длинный */
+        margin: 0;
+        font-family: inherit;
+        padding-top: 15px;
+        color: white;
+    }
+
+    .copy-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: auto;
+        /* Переопределяем width: 45% из общих стилей кнопок */
+        padding: 5px 10px;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+    #final-card {
+        width: 700px;
+    }
 </style>
 
 <body class="setStars">
+    <div class="card hidden" id="final-card">
 
+    </div>
     <header class="card">
         <p>Имя/Прозвище: <input type="text" id="name-input"></p>
 
         <p>Возраст: <input type="number" id="age-input"></p>
 
-        <p>Рост: <input type="text" id="height-input"></p>
+        <p>Рост: <input type="number" id="height-input"></p>
 
         <p>Раса: <input type="text" id="race-input"></p>
 
@@ -84,7 +130,116 @@
 
     <script src="stars.js"></script>
     <script>
+        const header = document.querySelector('header')
+        const finalCard = document.querySelector("#final-card")
 
+        const nameInput = document.querySelector("#name-input");
+        const ageInput = document.querySelector("#age-input");
+        const heightInput = document.querySelector("#height-input");
+        const raceInput = document.querySelector("#race-input");
+        const appearanceInput = document.querySelector("#appearance-input");
+        const fractionInput = document.querySelector("#fraction-input");
+        const classInput = document.querySelector("#class-input");
+        const backgroundInput = document.querySelector("#background-input");
+        const startingItemsInput = document.querySelector("#startingItems-input");
+        const additionallyInput = document.querySelector("#additionally-input");
+
+        const doneButton = document.querySelector("#done-button");
+
+        doneButton.addEventListener('click', finalization)
+
+        function finalization() {
+            // Проверяем, что ни одно из полей input не пустое
+            if (
+                nameInput.value.trim() === '' ||
+                ageInput.value.trim() === '' ||
+                heightInput.value.trim() === '' ||
+                raceInput.value.trim() === '' ||
+                fractionInput.value.trim() === '' ||
+                classInput.value.trim() === ''
+            ) {
+                alert('Пожалуйста, заполните все мелкие поля!');
+                return;
+            }
+
+            // Проверяем возраст
+            if (Number(ageInput.value) < 1) {
+                alert('Возраст не может быть меньше 1!');
+                return;
+            }
+
+            // Проверяем рост
+            if (Number(heightInput.value) <= 0) {
+                alert('Рост должен быть больше 0!');
+                return;
+            }
+
+            // ПРОВЕРКИ TEXTAREA
+            const hasAppearance = appearanceInput.value.trim() !== '';
+            const hasBackground = backgroundInput.value.trim() !== '';
+            const hasAdditionally = additionallyInput.value.trim() !== '';
+            const hasItems = startingItemsInput.value.trim() !== '';
+
+            // Скрываем форму и показываем финальную карточку
+            header.classList.toggle('hidden');
+            finalCard.classList.toggle('hidden');
+
+            // Очищаем карточку перед генерацией (на случай, если пользователь вернется назад)
+            finalCard.innerHTML = '';
+
+            // ФОРМИРУЕМ ТЕКСТА (Добавлено "см" к переменной роста)
+            let finalCharText = `## Имя/прозвище: ${nameInput.value}
+## Возраст: ${ageInput.value}
+## Рост: ${heightInput.value} см
+## Раса: ${raceInput.value}
+${hasAppearance ? `## Внешность:\n${appearanceInput.value}\n` : ''}## Фракция: ${fractionInput.value}
+## Класс: ${classInput.value}
+${hasBackground ? `## Предыстория:\n${backgroundInput.value}\n` : ''}${hasAdditionally ? `## Дополнительно:\n${additionallyInput.value}\n` : ''}`;
+
+            let finalListText = `## Жизненный эфир: 100/100
+## Эфирная энергия: 100/100
+## Эфирная мощь: 0/10
+-
+## Инвентарь:
+${hasItems ? startingItemsInput.value : '-'}`;
+
+            // Функция для создания блока с текстом и кнопкой копирования
+            function createCopyableBlock(textToCopy) {
+                const container = document.createElement('div');
+                container.className = 'copy-container';
+
+                const pre = document.createElement('pre');
+                pre.textContent = textToCopy.trim();
+
+                const copyBtn = document.createElement('button');
+                copyBtn.textContent = 'Копировать';
+                copyBtn.className = 'copy-btn';
+
+                // Логика копирования
+                copyBtn.addEventListener('click', () => {
+                    navigator.clipboard.writeText(textToCopy.trim())
+                        .then(() => {
+                            copyBtn.textContent = 'Скопировано!';
+                            // Возвращаем текст кнопки обратно через 2 секунды
+                            setTimeout(() => {
+                                copyBtn.textContent = 'Копировать';
+                            }, 2000);
+                        })
+                        .catch(err => {
+                            console.error('Ошибка копирования: ', err);
+                        });
+                });
+
+                container.appendChild(copyBtn);
+                container.appendChild(pre);
+
+                return container;
+            }
+
+            // Добавляем оба блока в finalCard
+            finalCard.appendChild(createCopyableBlock(finalCharText));
+            finalCard.appendChild(createCopyableBlock(finalListText));
+        }
     </script>
 </body>
 
