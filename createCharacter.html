@@ -64,17 +64,11 @@
         border: solid #87cfeb71 2px;
         border-radius: 10px;
         padding: 20px 10px 10px 10px;
-        /* Отступ сверху побольше, чтобы кнопка не перекрывала текст */
         margin-bottom: 20px;
-
-        width: 400px;
-        height: 300px;
-
     }
 
     .copy-container pre {
         white-space: pre-wrap;
-        /* Сохраняет переносы строк и позволяет тексту переноситься, если он длинный */
         margin: 0;
         font-family: inherit;
         padding-top: 15px;
@@ -85,15 +79,13 @@
         position: absolute;
         top: 5px;
         right: 5px;
-        width: auto;
-        /* Переопределяем width: 45% из общих стилей кнопок */
         padding: 5px 10px;
         font-size: 12px;
         cursor: pointer;
     }
 
     #final-card {
-        width: 700px;
+        flex-direction: column;
     }
 </style>
 
@@ -108,7 +100,7 @@
 
         <p>Рост: <input type="number" id="height-input"></p>
 
-        <p>Раса: <input type="number" id="race-input"></p>
+        <p>Раса: <input type="text" id="race-input"></p>
 
         <p>Внешность:</p>
         <textarea id="appearance-input"></textarea>
