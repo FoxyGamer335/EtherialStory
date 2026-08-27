@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+    input {
+        background: none;
+        border: none;
+        border-bottom: solid #87cfeb71 2px;
+        color: white;
+        padding: 3px;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    textarea {
+        padding: 3px;
+        color: white;
+        resize: none;
+        height: 100px;
+        width: 100%;
+        background: none;
+        border: solid #87cfeb71 2px;
+    }
+
+    textarea:focus {
+        outline: none;
+    }
+
+    button {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+
+        width: 45%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        background: linear-gradient(#87cfeb55, #0000007c);
+        border-radius: 15px;
+        border: solid #ffffff24 2px;
+    }
+</style>
+
+<body class="setStars">
+
+    <header class="card">
+        <p>Имя/Прозвище: <input type="text" id="name-input"></p>
+
+        <p>Возраст: <input type="number" id="age-input"></p>
+
+        <p>Рост: <input type="text" id="height-input"></p>
+
+        <p>Раса: <input type="text" id="race-input"></p>
+
+        <p>Внешность:</p>
+        <textarea id="appearance-input"></textarea>
+
+        <p>Фракция: <input type="text" id="fraction-input"></p>
+
+        <p>Класс: <input type="text" id="class-input"></p>
+
+        <p>Предыстория(Краткая. Желательно)</p>
+        <textarea id="background-input"></textarea>
+
+        <p>Стартовые предметы и снаряжение(По желанию):</p>
+        <textarea id="startingItems-input"></textarea>
+
+        <p>Дополнительно(По желанию):</p>
+        <textarea id="additionally-input"></textarea>
+        <button id="done-button">Готово</button>
+    </header>
+
+    <script src="stars.js"></script>
+    <script>
+
+    </script>
+</body>
+
+</html>

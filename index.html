@@ -5,70 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<style>
-    body {
-        margin: 0;
-        color: #dedede;
-        font-family: Arial, sans-serif;
-
-        background: url("https://spacegid.com/wp-content/uploads/2016/03/Zvezdnoe-nebo.jpg");
-        background-color: #1e1e1e;
-        background-blend-mode: lighten;
-        background-size: cover;
-        background-attachment: fixed;
-
-        position: relative;
-        min-height: 100vh;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    header {
-        flex-direction: column;
-    }
-
-    .starSpanObject {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        pointer-events: none;
-        overflow: hidden;
-    }
-
-    .card {
-        position: relative;
-        z-index: 1;
-
-        width: 25em;
-        padding: 18px;
-
-        background: linear-gradient(#87cfeb13, #0000004d);
-        border-radius: 15px;
-        border: solid #ffffff24 2px;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-    }
-
-    a {
-        color: white;
-        text-decoration: none;
-        padding: 10px;
-        width: 40%;
-        text-align: center;
-
-        background: linear-gradient(#87cfeb55, #0000007c);
-        border-radius: 15px;
-        border: solid #ffffff24 2px;
-    }
-</style>
 <body class="setStars">
 
     <header class="card">
@@ -81,7 +19,7 @@
     </header>
     <div class="card">
         <a href="./EtherialStory.html">История</a>
-        <a href="">Создать персонажа</a>
+        <a href="./createCharacter.html">Создать персонажа</a>
     </div>
 
     <script src="stars.js"></script>
