@@ -105,12 +105,12 @@
 
         <p>Раса: <input type="text" id="race-input"></p>
 
-        <p>Внешность:</p>
-        <textarea id="appearance-input"></textarea>
-
         <p>Фракция: <input type="text" id="fraction-input"></p>
 
         <p>Класс: <input type="text" id="class-input"></p>
+        
+        <p>Внешность:</p>
+        <textarea id="appearance-input"></textarea>
 
         <p>Предыстория:</p>
         <textarea id="background-input"></textarea>
@@ -191,7 +191,8 @@ ${hasAppearance ? `## Внешность:\n${appearanceInput.value}\n` : ''}## �
 ## Класс: ${classInput.value}
 ${hasBackground ? `## Предыстория:\n${backgroundInput.value}\n` : ''}${hasAdditionally ? `## Дополнительно:\n${additionallyInput.value}\n` : ''}`;
 
-            let finalListText = `## Жизненный эфир: 100/100
+            let finalListText = `## Титул: Новоприбывший
+## Жизненный эфир: 100/100
 ## Эфирная энергия: 100/100
 ## Эфирная мощь: 0/10
 -
