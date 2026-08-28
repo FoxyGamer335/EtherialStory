@@ -183,21 +183,21 @@
             finalCard.innerHTML = '';
 
             // ФОРМИРУЕМ ТЕКСТА (Добавлено "см" к переменной роста)
-            let finalCharText = `## Имя/прозвище: ${nameInput.value}
-## Возраст: ${ageInput.value}
-## Рост: ${heightInput.value} см
-## Раса: ${raceInput.value}
-${hasAppearance ? `## Внешность:\n${appearanceInput.value}\n` : ''}## Фракция: ${fractionInput.value}
-## Класс: ${classInput.value}
-${hasBackground ? `## Предыстория:\n${backgroundInput.value}\n` : ''}${hasAdditionally ? `## Дополнительно:\n${additionallyInput.value}\n` : ''}`;
+            let finalCharText = `### Имя/прозвище: ${nameInput.value}
+### Возраст: ${ageInput.value}
+### Рост: ${heightInput.value} см
+### Раса: ${raceInput.value}
+${hasAppearance ? `### Внешность:\n${appearanceInput.value}\n` : ''}### Фракция: ${fractionInput.value}
+### Класс: ${classInput.value}
+${hasBackground ? `### Предыстория:\n${backgroundInput.value}\n` : ''}${hasAdditionally ? `### Дополнительно:\n${additionallyInput.value}\n` : ''}`;
 
-            let finalListText = `## Титул: Новоприбывший
-## Жизненный эфир: 100/100 🩵
-## Эфирная энергия: 100/100 
-## Эфирная мощь: 0/10
+            let finalListText = `### Титул: Новоприбывший
+### Жизненный эфир: 100/100 🩵
+### Эфирная энергия: 100/100 
+### Эфирная мощь: 0/10
 -
-## Эфир: 0 💠
-## Инвентарь:
+### Эфир: 0 💠
+### Инвентарь:
 ${hasItems ? startingItemsInput.value : '-'}`;
 
             // Функция для создания блока с текстом и кнопкой копирования
