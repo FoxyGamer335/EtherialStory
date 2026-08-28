@@ -37,6 +37,7 @@ h2,
 h3,
 h4 {
     padding: 10px 0 3px;
+    position: relative;
 }
 
 hr {
@@ -157,6 +158,21 @@ a {
     border-radius: 15px;
     border: solid #ffffff24 2px;
 }
+
+    button {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        background: linear-gradient(#87cfeb55, #0000007c);
+        border-radius: 15px;
+        border: solid #ffffff24 2px;
+    }
 
 a:hover, button:hover {
     background: linear-gradient(#87cfeb88, #0000009c);

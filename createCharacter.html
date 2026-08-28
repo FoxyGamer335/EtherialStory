@@ -35,23 +35,6 @@
         outline: none;
     }
 
-    button {
-        color: white;
-        text-decoration: none;
-        padding: 10px;
-
-        width: 45%;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-
-        background: linear-gradient(#87cfeb55, #0000007c);
-        border-radius: 15px;
-        border: solid #ffffff24 2px;
-    }
-
     .hidden {
         position: absolute;
         visibility: hidden;
@@ -87,6 +70,17 @@
     #final-card {
         flex-direction: column;
     }
+
+    #buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    #buttons > button {
+        width: 100px;
+    }
 </style>
 
 <body class="setStars">
@@ -120,7 +114,10 @@
 
         <p>Дополнительно:</p>
         <textarea id="additionally-input"></textarea>
-        <button id="done-button">Готово</button>
+        <div id="buttons">
+            <button id="done-button">Готово</button>
+            <button onclick="history.back()">Назад</button>
+        </div>
     </header>
 
     <script src="stars.js"></script>

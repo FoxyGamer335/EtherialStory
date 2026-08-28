@@ -7,10 +7,27 @@
     <title>Etherial Story</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    button {
+        position: absolute;
+        top: calc(50% - 20px);
+        right: 10px;
+    }
+
+    @media screen and (min-width: 1000px) {
+        #back {
+            left: 500px;
+            right: auto;
+        }
+    }
+</style>
 
 <body>
     <div class="c1">
-        <h1>Главная валюта и механики</h1>
+        <h1>
+            Главная валюта и механики <button onclick="history.back()" id="back">Назад</button>
+        </h1>
+
         <hr>
         <div>
             <div class="card setStars">
@@ -68,7 +85,8 @@
                     </li>
                     <li>
                         <p>Кроме самого эфира, как ресурса, существует энергия эфира. Она определяется как способность
-                            сущности искажать эфирные потоки, то есть сколько способностей оно может использовать, и зависит от ее уровня</p>
+                            сущности искажать эфирные потоки, то есть сколько способностей оно может использовать, и
+                            зависит от ее уровня</p>
                     </li>
                     <li>
                         <p>Способности, требующие затрат, тратят не эфир, а энергию эфира</p>
